@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="fondoGradiente fuentePrincipal">
+<header>
+        <h1 class="text-center boxxy">BANCO DE CHICLE</h1>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 d-none d-lg-block">
+
+                    <img src="/img/Familia estereotípica.jpg" alt="Familia" class="rounded">
+
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    
+                    <form class="boxxy fondoGradiente rounded-3">
+                        <div class="row">
+                            <h2 class="text-center text-light">Inicio de sesión</h2>
+                        </div>
+                        <!-- Usuario -->
+                        <div class="row">
+                            <div class="col">
+                                <label for="user" class="text-light">Usuario: </label>
+                            </div>
+                            <div class="col">
+                                <input class="rounded" type="email" name="userSend" id="userSend" placeholder="Correo electrónico">
+                            </div>
+                        </div>
+                        <!-- Contraseña -->
+                        <div class="row">
+                            <div class="col">
+                                <label for="pass" class="text-light">Contraseña: </label>
+                            </div>
+                            <div class="col">
+                                <input class="rounded" type="password" name="passSend" id="passSend" placeholder="Contraseña">
+                            </div>
+                        </div>
+                        
+                        <!-- Botón de enviar -->
+                        <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <br>    
+                        <button type="submit" class="boxxy btn btn-primary rounded" name="sendLogin" id="sendLogin">Enviar</button>
+                            <br>
+                        </div>
+                        <div class="col"></div>
+                        </div>
+
+                        <!-- Registrarse -->
+                        <div class="row">    
+                        <div class="col text-light text-end">No tengo una cuenta </div><div class="col"><a href="register.html" class="enlaces text-center">Registrarse</a></div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/js/loginscript.js"></script>
+</body>
+</html>

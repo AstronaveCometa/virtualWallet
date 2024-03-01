@@ -1,0 +1,43 @@
+
+.enlaces{
+    color: rgb(0, 86, 177);
+}
+
+.enlaces:hover{
+    color: rgb(59, 116, 176);
+    font-weight: bold;
+}
+
+.table{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+img{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.484);
+}
+
+.boxxy{
+    /* border: medium solid white; */
+    border: thin solid white;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.454);
+
+}
+
+h1{
+    color: white;
+}
+
+.fuentePrincipal{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.fondoGradiente{
+    background: linear-gradient(rgb(79, 79, 255),rgb(168, 168, 255));
+    background-repeat: no-repeat;
+}
+
+body{
+    height: 100vh;
+}

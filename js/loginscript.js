@@ -1,38 +1,15 @@
-// $(document).ready(function() {
-//     $("#login-form").submit(function(event) {
-//       event.preventDefault(); // Evita que el formulario se envíe por defecto
-  
-//       // Capturar valores de login y password
-//       var email = $("#userSend").val();
-//       var password = $("#passSend").val();
-  
-//       // validar login y password
-//         if(email=="cesar@gmail.com" && password=="c"){
-//             location.href="menu.html";
-//         }else{
-//             alert("error");
-//             console.log("error");
-// }
-//     });
-//   });
+const form = document.getElementById('loginSubmit');
 
-
-
-const boton = document.getElementById("sendLogin");
-const usuario = document.getElementById("userSend");
-const contrasena = document.getElementById("passSend");
-
-boton.addEventListener("click",function(event){
+form.addEventListener("submit", (event) => {
    event.preventDefault();
 
-console.log(boton);
-console.log(usuario);
-console.log(contrasena);
+const usuario = document.getElementById("userSend").value;
+const contrasena = document.getElementById("passSend").value;
 
    if (usuario === "sebastian@correo.com" && contrasena === "1234") {
-       window.location.href = "/html/menu.html";
+      location.href = "menu.html";
    }
    else{
-      return;
+      alert("Usuario o contraseña no corresponde");
    }
 })

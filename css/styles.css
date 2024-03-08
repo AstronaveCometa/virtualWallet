@@ -12,8 +12,22 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
-img{
+.imagenLogin{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.484);
+}
+
+.botonMenu:hover{
+    background: linear-gradient(rgb(126, 126, 255),rgb(212, 212, 255));
+    background-repeat: no-repeat;
+}
+
+.fotoMenu{
+    max-height: 200px;
+    max-width: 300px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .boxxy{
@@ -26,6 +40,14 @@ img{
 }
 
 h1{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+.textoBlanco{
     color: white;
 }
 

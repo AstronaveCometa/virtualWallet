@@ -39,6 +39,15 @@
 
 }
 
+.icono{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.escondete{
+    display: none;
+}
+
 h1{
     color: white;
 }

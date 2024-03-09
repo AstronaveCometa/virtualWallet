@@ -10,10 +10,11 @@ $(document).ready(function() {
 
         var abono = parseFloat($("#abono").val());
 
-if (!isNaN(abono) && !isNaN(resultado) && resultado > 0) {
+if (!isNaN(abono) && !isNaN(resultado) && abono > 0) {
             resultado = abono + resultado;
             $("#resultado").text(resultado);
             console.log("ahora el saldo es " + resultado);
+            alert("Depósito realizado exitosamente.")
         } else{
             $("#resultado").text("Por favor, ingrese números válidos.");
         }

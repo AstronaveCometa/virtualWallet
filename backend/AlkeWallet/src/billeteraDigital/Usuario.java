@@ -49,6 +49,14 @@ public class Usuario {
 		this.email = email;
 	}
 	
+	//ArrayList de cuentas
+	public ArrayList<Cuenta> getCuentas() {
+		return cuentas;
+	}
+	public void setCuentas(ArrayList<Cuenta> cuentas) {
+		this.cuentas = cuentas;
+	}
+
 	//método para crear nueva cuenta con numero de cuenta aleatorio
 	public void crearCuenta (Moneda divisa) {
 

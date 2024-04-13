@@ -1,3 +1,9 @@
+/** Clase para crear objetos Moneda, con nombre, proporcionDolar y signo
+* @author Sebastián León
+* @version 1.0
+*
+**/
+
 package billeteraDigital;
 
 public class Moneda {
@@ -12,7 +18,12 @@ public class Moneda {
 		
 	}
 	
-	//constructor para poblado de atributos
+	/**
+	* Constructor por defecto
+	* @param String nombre - nombre de la divisa a crear
+	* @param float proporcionDolar - proporción de la moneda con respecto de 1 dolar
+	* @param char signo - signo de la divisa a crear
+	**/
 	public Moneda(String nombre, float proporcionDolar, char signo) {
 		this.nombre = nombre;
 		this.proporcionDolar = proporcionDolar;

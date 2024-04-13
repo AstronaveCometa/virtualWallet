@@ -1,3 +1,9 @@
+/** Clase para crear objetos usuario, con nombre, rut, email y cuentas
+* @author Sebastián León
+* @version 1.0
+*
+**/
+
 package billeteraDigital;
 
 import java.util.ArrayList;
@@ -15,7 +21,12 @@ public class Usuario {
 		
 	}
 	
-	//constructor para poblar	
+	/** 
+	* Constructor por defecto
+	* @param String nombre - nombre del usuario a crear
+	* @param String rut - rut del usuario a crear
+	* @param String email - email del usuario a crear
+	**/
 	public Usuario(String nombre, String rut, String email) {
 		this.nombre = nombre;
 		this.rut = rut;
@@ -57,7 +68,10 @@ public class Usuario {
 		this.cuentas = cuentas;
 	}
 
-	//método para crear nueva cuenta con numero de cuenta aleatorio
+	/** 
+	* Método para crear nueva cuenta con numero de cuenta aleatorio
+	* @param Objeto Moneda - divisa para configurar la nueva cuenta del usuario
+	**/
 	public void crearCuenta (Moneda divisa) {
 
 		Cuenta nuevaCuenta = new Cuenta((int) (Math.random()*100000), 5000d, divisa);
@@ -69,6 +83,9 @@ public class Usuario {
 				
 	}
 	
+	/** 
+	* Método para mostrar las cuentas de un usuario
+	**/
 	public void mostrarCuentas() {
 		if(this.cuentas.isEmpty()) {
 			System.out.println("El usuario " + nombre + " no tiene cuentas.");

@@ -1,3 +1,9 @@
+/** Clase MAIN
+* @author Sebastián León
+* @version 1.0
+*
+**/
+
 package billeteraDigital;
 
 import java.util.ArrayList;
@@ -6,7 +12,11 @@ import java.util.Scanner;
 public class Main {
 	static Scanner teclado = new Scanner(System.in);
 	
-	
+	/** 
+	* Método para escoger entre elegir o crear usuario y cuenta, devuelve 1 para "Elegir" y 2 para "Crear"
+	* @param elemento - String con "usuario" o "cuenta" para desplegarlo en la pregunta
+	* @return entero 1 o 2, que representa elegir o crear respectivamente 
+	**/
 	public static int elegirOCrear(String elemento) {
 		int eleccion;
 		do {
@@ -23,7 +33,11 @@ public class Main {
 		return eleccion;
 	}
 	
-	//método para elegir usuario
+	/** 
+	* Método para elegir usuario, devuelve el índice del usuario elegido por consola de entre un ArrayList de usuarios
+	* @param ArrayList de objetos Usuario - lista de los usuarios del proyecto
+	* @return entero con el índice del usuario elegido de entre los del ArrayList
+	**/
 	public static int elegirUsuario(ArrayList<Usuario> usuarios) {
 		int i = 0;
 		int eleccion;
@@ -49,7 +63,11 @@ public class Main {
 		
 	}
 	
-	//método para elegir cuenta
+	/** 
+	* Método para elegir cuenta, devuelve el índice de la cuenta elegida por consola de entre un ArrayList de cuentas
+	* @param ArrayList de objetos cuenta - lista de las cuentas de un usuario
+	* @return entero con el índice de la cuenta elegida en consola
+	**/
 	public static int elegirCuenta(ArrayList<Cuenta> cuentas) {
 		int i = 0;
 		int eleccion;
@@ -74,19 +92,30 @@ public class Main {
 		return eleccion;
 	}
 	
-	//método para elegir operación
+	public static void crearDivisa (Divisas divisas) {
+			System.out.println("Divisas disponibles: ");
+			divisas.mostrarDivisas();
+			divisas.agregarDivisa();
+	}
+	
+	/** 
+	* Método para elegir operación, devuelve el número de la alternativa elegida por consola
+	* @return entero con la alternativa elegida en consola
+	**/
 	public static int alternativa() {
 		int eleccion;
 		System.out.println("Elija la operación que desea realizar:\n"
-				+ "1) Depósito\n"
-				+ "2) Giro\n"
-				+ "3) Transferencia\n"
-				+ "4) Cambiar de divisa\n"
-				+ "5) Cambio de cuenta\n"
-				+ "6) Cambio de usuario\n"
-				+ "7) Salir\n");
+				+ "1) Consultar saldo"
+				+ "2) Depósito\n"
+				+ "3) Giro\n"
+				+ "4) Transferencia\n"
+				+ "5) Cambiar de divisa\n"
+				+ "6) Cambio de cuenta\n"
+				+ "7) Cambio de usuario\n"
+				+ "8) Crear nueva divisa\n"
+				+ "9) Salir\n");
 		eleccion = teclado.nextInt();
-		if (eleccion > 6 || eleccion < 1) {
+		if (eleccion > 9 || eleccion < 1) {
 			System.out.println("Operación no válida.");
 		} else {
 		}
@@ -95,52 +124,34 @@ public class Main {
 	
 	
 	
-	//método ejecutor
-
+	// Método ejecutor
 	public static void main(String[] args) {
 		
 		Divisas divisasMain = new Divisas(); //instanciación de objeto que contiene las divisas, por defecto tiene dolar, euro y peso chileno
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>(); //creación de arraylist de usuarios
-		int usuarioEnUso = 0;
-		int cuentaEnUso = 0;
-		int opcionSeleccionada;
-		int divisaSeleccionada;
-		Double transferencia;
-		int usuarioTransferencia;
-		int cuentaTransferencia;
+		int usuarioEnUso = 0; //variable para determinar cuál es el usuario en uso
+		int cuentaEnUso = 0; //variable para determinar cuál es la cuenta en uso
+		int opcionSeleccionada; //variable para recibir la opción seleccionada cuando se llame a alternativas()
+		int divisaSeleccionada; //variable para recibir la divisa elegida por consola para crear una nueva divisa
+		Double transferencia; //Double para recibir monto de transferencia
+		int usuarioTransferencia; //variable para recibir el índice del usuario elegido para recibir una transferencia
+		int cuentaTransferencia; //variable para recibir el índice de la cuenta elegida para recibir una transferencia
 		
-		boolean continuarUsuario = true;
-		boolean continuarCuenta = true;
-		boolean repetir = true;
+		boolean continuarUsuario = true; //boolean para determinar si se continúa usando el mismo usuario en el do while correspondiente
+		boolean continuarCuenta = true; //boolean para determinar si se continúa usando la misma cuenta en el do while correspondiente
+		boolean repetir = true; //boolean para determinar si se continúa operando en consola en el do while correspondiente
 		
-		//usuarios por defecto, con una cuenta de divisa de peso chileno, valentina y joaquín, se añaden al arraylist de usuarios
+		//creación usuarios por defecto, con una cuenta de divisa de peso chileno, valentina y joaquín, se añaden al arraylist de usuarios
 		Usuario nuevo1 = new Usuario("Valentina", "17175378-0", "valentina.delahoz@gmail.com"); 
 		Usuario nuevo2 = new Usuario("Joaquín", "16711874-K", "juacocardenas7@gmail.com");
 		nuevo1.crearCuenta(divisasMain.divisas.get(2));
 		nuevo2.crearCuenta(divisasMain.divisas.get(2));
 		usuarios.add(nuevo1);
 		usuarios.add(nuevo2);
-		
-		//opción para agregar nuevas divisas
-		do {
-			System.out.println("Divisas disponibles: ");
-			divisasMain.mostrarDivisas();
-			System.out.println("¿Agregar nuevas divisas?\n"
-					+ "Sí: 1  No: 2");
-			opcionSeleccionada = teclado.nextInt();
-			if(opcionSeleccionada == 1) {
-				divisasMain.agregarDivisa();
-			} else if (opcionSeleccionada == 2){
-				
-			} else {
-				System.out.println("Opción no válida.");
-				opcionSeleccionada = 1;
-			}
-		} while (opcionSeleccionada == 1);
+
 		
 		//inicio de operaciones
 		do {
-			
 			do { 
 			opcionSeleccionada = elegirOCrear("usuario");
 			switch (opcionSeleccionada) {
@@ -181,10 +192,13 @@ public class Main {
 		
 		
 			do {
-					//selección de operación
+					//selección de operación con método alternativa()
 					opcionSeleccionada = alternativa();
-					switch(opcionSeleccionada) {
+					switch(opcionSeleccionada) { //switch con la alternativa elegida por consola
 						case 1:
+							System.out.print("El saldo de la cuenta " + usuarios.get(usuarioEnUso).getCuentas().get(cuentaEnUso).getNumeroCuenta() + " es: " + usuarios.get(usuarioEnUso).getCuentas().get(cuentaEnUso).getDivisa().getSigno() + usuarios.get(usuarioEnUso).getCuentas().get(cuentaEnUso).getSaldo());
+							break;
+						case 2:
 							System.out.print("Ingrese el monto del depósito: ");
 						    usuarios.get(usuarioEnUso).getCuentas().get(cuentaEnUso).realizarDeposito(teclado.nextDouble());
 						    System.out.println("¿Desea realizar otra operación?\n"
@@ -198,7 +212,7 @@ public class Main {
 						    	repetir = false;
 						    	break;
 						    }
-						case 2:
+						case 3:
 							System.out.print("Ingrese el monto del giro: ");
 						    usuarios.get(usuarioEnUso).getCuentas().get(cuentaEnUso).realizarGiro(teclado.nextDouble());
 						    System.out.println("¿Desea realizar otra operación?\n"
@@ -212,7 +226,7 @@ public class Main {
 						    	repetir = false;
 						    	break;
 						    }
-						case 3:
+						case 4:
 							System.out.print("Ingrese el monto de la transferencia: ");
 							transferencia = teclado.nextDouble();
 							System.out.println("Seleccione el usuario a transferir");
@@ -232,7 +246,7 @@ public class Main {
 						    	repetir = false;
 						    	break;
 						    }
-						case 4:
+						case 5:
 							System.out.println("Seleccione la nueva divisa de la cuenta: ");
 							divisasMain.mostrarDivisas();
 							divisaSeleccionada = teclado.nextInt();
@@ -246,14 +260,17 @@ public class Main {
 							//en caso de que la moneda termine en dólares, la multiplicación quedará sin efecto
 							//en caso de que vaya de dólares a dólares, todo el proceso no alterará el saldo
 							break;
-						case 5:
+						case 6:
 						    continuarCuenta = false;
 						    break;
-						case 6:
+						case 7:
 							continuarCuenta = false;
 							continuarUsuario = false;
 							break;
-						case 7:
+						case 8:	
+							crearDivisa(divisasMain);
+							break;
+						case 9:
 							continuarCuenta = false;
 					    	continuarUsuario = false;
 					    	repetir = false;

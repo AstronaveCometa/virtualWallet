@@ -93,8 +93,8 @@ public class Cuenta {
 			System.out.println("La transferencia no ha podido realizarse porque la divisa de la cuenta receptora es diferente de la de origen.");
 		} else {
 		if(this.saldo >= montoTransferencia) {
-			this.saldo =- montoTransferencia;
-			cuentaReceptora.saldo =+ montoTransferencia;
+			setSaldo(this.saldo - montoTransferencia);
+			cuentaReceptora.setSaldo(cuentaReceptora.getSaldo() + montoTransferencia);
 			System.out.println("La transferencia se ha realizado exitosamente.");
 			System.out.println("Su saldo actual es " + getDivisa().getSigno() + this.saldo);
 		} else {

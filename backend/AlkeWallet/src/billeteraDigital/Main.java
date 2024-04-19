@@ -93,9 +93,16 @@ public class Main {
 	}
 	
 	public static void crearDivisa (Divisas divisas) {
-			System.out.println("Divisas disponibles: ");
+		System.out.println("Ingrese el nombre de la nueva divisa: ");
+		String nombre = teclado.next();
+		
+		System.out.println("Ingrese la proporción con respecto del dolar de la nueva divisa: ");
+		float proporcion = teclado.nextFloat();
+		
+		System.out.println("Ingrese el símbolo de la nueva divisa: ");
+		char simbolo = teclado.next().charAt(0);
 			divisas.mostrarDivisas();
-			divisas.agregarDivisa();
+			divisas.agregarDivisa(nombre, proporcion, simbolo);
 	}
 	
 	/** 
@@ -105,7 +112,7 @@ public class Main {
 	public static int alternativa() {
 		int eleccion;
 		System.out.println("Elija la operación que desea realizar:\n"
-				+ "1) Consultar saldo"
+				+ "1) Consultar saldo\n"
 				+ "2) Depósito\n"
 				+ "3) Giro\n"
 				+ "4) Transferencia\n"
@@ -269,6 +276,7 @@ public class Main {
 							break;
 						case 8:	
 							crearDivisa(divisasMain);
+							opcionSeleccionada = 1;
 							break;
 						case 9:
 							continuarCuenta = false;

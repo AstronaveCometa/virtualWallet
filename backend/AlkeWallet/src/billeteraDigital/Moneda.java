@@ -6,7 +6,7 @@
 
 package billeteraDigital;
 
-public class Moneda {
+public class Moneda implements Currency{
 	
 	//declaración de atributos
 	private String nombre;
